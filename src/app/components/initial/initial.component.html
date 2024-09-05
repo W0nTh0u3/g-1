@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+    <label for="first-name">First Name: </label>
+    <input type="text" formControlName="firstName">
+    <br>
+    <label for="last-name">Last Name: </label>
+    <input type="text" formControlName="lastName">
+    <br>
+    <label for="last-name">Gender: <span style="color:red">*</span></label>
+    <select formControlName="gender">
+        <option *ngFor="let gender of genders" [ngValue]="gender.val">{{ gender.display }}</option>
+    </select>
+</form>
+<ng-container *ngIf="error">
+    Gender is required.<br>
+</ng-container>
+<button (click)="clear()">Clear</button>
+<button (click)="submit()">Submit</button>

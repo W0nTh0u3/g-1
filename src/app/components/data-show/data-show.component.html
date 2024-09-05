@@ -1,0 +1,10 @@
+<ng-container *ngIf="!data?.gender else showData">
+    Data is Empty.
+</ng-container>
+<ng-template #showData>
+    Hi {{ data.firstName }} {{ data.lastName }}! Your color is <span [ngStyle]="{ 'color': color }">{{ color | uppercase }}!</span> 
+    <br><br>
+    Raw Data: <br>
+    {{ data | json }}
+</ng-template>
+
